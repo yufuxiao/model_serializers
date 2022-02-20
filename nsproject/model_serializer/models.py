@@ -1,5 +1,3 @@
-import json
-
 from django.db import models
 from django.db.models import JSONField
 
@@ -12,6 +10,12 @@ class TasksTopo(models.Model):
     bk_inst_name = models.CharField(max_length=255, verbose_name="节点名称")
     path = models.TextField(verbose_name="拓扑路径")
 
+    class Serializer:
+        default_fields = ["bk_biz_id", "bk_obj_id", "bk_inst_id"]
+        field_groups = {
+            "list": ["tasks"]
+        }
+
 
 class Tasks(models.Model):
     """任务"""
@@ -22,6 +26,15 @@ class Tasks(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def serialize_app(self):
+        return "xxxx"
+
+    class Serializer:
+        default_fields = ["task_name", "test_list", "test_char"]
+        field_groups = {
+            "list": ["task_topo", "task_name", "test_list", "test_char", "app", "report"]
+        }
 
 
 class Reports(models.Model):
@@ -38,3 +51,9 @@ class Reports(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Serializer:
+        default_fields = ["task_name", "name", "task_type"]
+        field_groups = {
+            "list": ["task_id"]
+        }
