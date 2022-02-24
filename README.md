@@ -1,5 +1,6 @@
 ### model_serializers
   常规的序列化方案：
+  
     1. 循环，如：我要获取所有的任务对象
       li = list()
       qs = Tasks.objects.all()
