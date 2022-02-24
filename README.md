@@ -21,10 +21,10 @@
        qs = Tasks.objects.all()
        data = serializers.serializer("josn", qs)
        缺点：只支持 queryset、 model 类型，不可序列化其他可迭代对象
-   提供两种类型的序列化方案
-   1. model 对象
-   2. queryset
-   3. 内部达成的一些通用数据类型
+    提供两种类型的序列化方案
+    1. model 对象
+    2. queryset
+    3. 内部达成的一些通用数据类型
 
 ### projects tree
 
