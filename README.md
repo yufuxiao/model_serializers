@@ -31,6 +31,10 @@
     │  └─serializers
     │  │  └─__init__   // 扩展 json.JSONEncoder，支持序列化 Model、queryset
     │  │  └─model      // Model 序列化主逻辑
+    
+### development
+
+    pip install requirements.txt
 
 ### usage
     class Tasks(models.Model):
@@ -72,4 +76,4 @@
   Python3.7
 
 ### database
-  pip install migrate
+  python manage.py migrate
