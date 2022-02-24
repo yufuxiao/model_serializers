@@ -6,7 +6,7 @@ import decimal
 from collections import defaultdict
 
 from django.db.models import QuerySet, Model
-from django.core.paginator import Paginator as PaginatorPage
+from django.core.paginator import Page as PaginatorPage
 from django.utils.timezone import is_aware, make_naive
 
 from model_serializer.serializers.model import LazySerializeProfile
