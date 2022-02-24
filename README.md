@@ -21,10 +21,6 @@
        qs = Tasks.objects.all()
        data = serializers.serializer("josn", qs)
        缺点：只支持 queryset、 model 类型，不可序列化其他可迭代对象
-    提供两种类型的序列化方案
-    1. model 对象
-    2. queryset
-    3. 内部达成的一些通用数据类型
 
 ### projects tree
 
@@ -33,7 +29,7 @@
     │  │  └─base       // 封装 api 响应中的 code 值
     │  │  └─pagination // 一个分页结构
     │  └─serializers
-    │  │  └─__init__   // 扩展 json.JSONEncoder，支持序列化 Model
+    │  │  └─__init__   // 扩展 json.JSONEncoder，支持序列化 Model、queryset
     │  │  └─model      // Model 序列化主逻辑
 
 ### usage
