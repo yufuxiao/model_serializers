@@ -1,7 +1,30 @@
 ### model_serializers
+  常规的序列化方案：
+    1. 循环，如：我要获取所有的任务对象
+      li = list()
+      qs = Tasks.objects.all()
+      for q in qs:
+          data = dict(id=q.id,name=q.name)
+          li.append(data)
+      缺点：如果字段过多，就要写很长，代码可读性很差，如果遇到日期类型字段 JsonResponse 无法序列化, 需要特殊处理
+      
+    2. model_to_dict
+      li = list()
+      qs = Tasks.objects.all()
+      from django.forms.models import model_to_dict
+      for q in qs:
+          li.append(model_to_dict(q))
+      缺点：日期类型、文件类型无法转换，并且不能指定需要序列化的字段
+      
+    3. django 自带的序列化方案 serializers
+       qs = Tasks.objects.all()
+       data = serializers.serializer("josn", qs)
+       缺点：只支持 queryset、 model 类型，不可序列化其他可迭代对象
+          
   提供两种类型的序列化方案
    1. model 对象
    2. queryset
+   3. 内部达成的一些通用数据类型
 
 ### projects tree
 
@@ -35,6 +58,7 @@
             }
             
         注意：id、 created_at、updated_at 默认序列化，不需要加入序列化组
+        支持 ManyToManyField, ForeignKey 的反向引用，relate_name 指定的名称，如上述： report、task_topo
  
             
     Model 对象：
