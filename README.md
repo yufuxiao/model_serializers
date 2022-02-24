@@ -1,7 +1,7 @@
 ### model_serializers
-  -- 提供两种类型的序列化方案
-  1. model 对象
-  2. queryset
+  提供两种类型的序列化方案
+    1. model 对象
+    2. queryset
 
 ### projects tree
 
