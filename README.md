@@ -56,14 +56,14 @@
         注意：id、 created_at、updated_at 默认序列化，不需要加入序列化组
         支持 ManyToManyField, ForeignKey 的反向引用，relate_name 指定的名称，如上述： report、task_topo
  
-            
-    Model 对象：
-        tasks = Tasks.objects.get(id=5)
-        return api.ok(tasks, group="xx")
+    views.py       
+      Model 对象：
+          tasks = Tasks.objects.get(id=5)
+          return api.ok(tasks, group="xx")
 
-    QuerySet:
-        qs = Tasks.objects.all()
-        return api.page(request, qs, group="xx")
+      QuerySet:
+          qs = Tasks.objects.all()
+          return api.page(request, qs, group="xx")
 
 ### django version
   Django3.1
