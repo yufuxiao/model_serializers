@@ -58,7 +58,16 @@ def get_pagination(request, queryset, *, page=None, page_size=None, max_page_siz
 
 
 def get_int(request, name, default=None, raise_on_value_error=False):
-    """获取一个 int 类型的字符串参数"""
+    """
+    获取一个 int 类型的 querystring 参数
+
+    参数的值必须是整数（支持负数），不支持小数。
+
+    :param request: HttpRequest 对象。
+    :param name: 参数名称。
+    :param default: 如果 querystring 中没有该参数，则返回 default。
+    :param raise_on_value_error: 若为 True，当参数值不是合法整数时，将抛出 ValueError，若为 False（默认），则返回 default 值。
+    """
     value = request.GET.get(name)
     if value is None:
         return default
