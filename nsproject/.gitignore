@@ -15,4 +15,4 @@ celerybeat.pid
 conf/settings_development.py
 /venv
 download/
-__pycache__
+/__pycache__
