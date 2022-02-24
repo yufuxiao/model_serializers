@@ -70,10 +70,13 @@
           return api.page(request, qs, group="xx")
 
 ### django version
+
   Django3.1
 
 ### python version
+
   Python3.7
 
 ### database
+
   python manage.py migrate
